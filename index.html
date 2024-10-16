@@ -11,22 +11,54 @@
             margin: 0;
             padding: 0;
             height: 100%;
-            background-color: #121212; /* Dark background */
-            color: #ffffff; /* White text */
+            background-color: #121212;
+            color: #ffffff;
             font-family: 'Arial', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        .container {
+/*
+        body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: url('render.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+*/
+
+        .wrapper {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            align-items: center; /* Ensure vertical alignment of both halves */
+        }
+
+        /* Left and right content styles */
+        .left-content, .right-content {
+            width: 50%; /* Split the page in half */
+            padding: 40px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Ensure content in both halves is centered vertically */
+            align-items: center;
+        }
+
+        .left-content {
             text-align: center;
-            padding: 20px; /* Add padding to the container */
         }
 
         h1 {
             font-size: 4em; /* Large title */
-            margin-bottom: 30px;
+            margin-bottom: 10px;
         }
 
         img {
@@ -41,31 +73,88 @@
             border-radius: 5px;
         }
 
+        .merch-image {
+          border-radius: 5px;
+        }
+
         p {
             font-size: 0.8em; /* Smaller text */
-            color: #aaaaaa; /* Slightly lighter text color for the smaller text */
+            /*color: #aaaaaa; /* Slightly lighter text color for the smaller text */
             margin-bottom: 40px;
         }
 
+        /* Align links in a row */
         .links {
             display: flex;
-            flex-direction: column;
-            gap: 20px;
+            justify-content: center;
+            gap: 20px; /* Space between buttons */
         }
 
         a {
-            color: #00BFFF; /* Bright link color */
             text-decoration: none;
             font-size: 1.5em;
             padding: 10px 20px;
-            border: 2px solid #00BFFF;
             border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
         }
 
-        a:hover {
-            background-color: #00BFFF;
-            color: #121212; /* Inverse colors on hover */
+        /* Discord button */
+        .discord {
+            background-color: #5865F2; /* Discord Blurple */
+            border: 2px solid #5865F2;
+            color: white;
+        }
+
+        .discord:hover {
+            background-color: transparent;
+            color: #5865F2;
+            border-color: #5865F2;
+        }
+
+        /* YouTube button */
+        .youtube {
+            background-color: #FF0000; /* YouTube Red */
+            border: 2px solid #FF0000;
+            color: white;
+        }
+
+        .youtube:hover {
+            background-color: transparent;
+            color: #FF0000;
+            border-color: #FF0000;
+        }
+
+        /* Email button */
+        .email {
+            background-color: #00BFFF; /* Keep email button's original color */
+            border: 2px solid #00BFFF;
+            color: white;
+        }
+
+        .email:hover {
+            background-color: transparent;
+            color: #00BFFF;
+            border-color: #00BFFF;
+        }
+
+        /* Right content styles */
+        .right-content {
+            /*background-color: #1a1a1a;*/
+        }
+
+        .right-content img {
+            width: 500px; /* Placeholder image size */
+            margin-bottom: 15px;
+        }
+
+        .right-content h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .right-content p {
+            font-size: 1.2em;
+            text-align: center;
         }
 
         /* Logo in the top left corner */
@@ -77,22 +166,23 @@
         }
 
         /* Responsive Design: Adjustments for smaller screens */
-        @media (max-width: 600px) {
+        @media (max-width: 900px) {
+            .wrapper {
+                flex-direction: column;
+            }
+
+            .left-content, .right-content {
+                width: 100%;
+                text-align: center;
+            }
+
             h1 {
-                font-size: 2em; /* Smaller font size on mobile */
+                font-size: 2.5em; /* Smaller font size on mobile */
             }
 
-            .construction-image {
-                width: 100%; /* Make the construction image fit the screen */
-            }
+            .right-content img {
+                width: 100%; /* Adjust placeholder image size */
 
-            a {
-                font-size: 1.2em; /* Reduce font size in links */
-                padding: 8px 16px; /* Adjust padding */
-            }
-
-            .logo {
-                width: 80px; /* Smaller logo size on mobile */
             }
         }
 
@@ -112,20 +202,32 @@
     <!-- Logo in the top left corner -->
     <img src="imleko-transparent.png" alt="Logo" class="logo">
 
-    <div class="container">
-      <h1>iMleko</h1>
-        <h1>🔨UNDER CONSTRUCTION🔨</h1>
+    <div class="wrapper">
+        <!-- Left content -->
+        <div class="left-content">
+            <h1>iMleko</h1>
+            <h2>Revolucija v tehnologiji shranjevanja in pitja mleka.</h2>
 
-        <div class="links">
-            <a href="https://discord.gg/E3ycHKKEtv">Discord</a>
-            <a href="https://www.youtube.com/@imleko">Youtube</a>
-            <a href="mailto:imlekolg@gmail.com">Email</a>
+            <div class="links">
+                <a href="https://discord.gg/E3ycHKKEtv" class="discord">Discord</a>
+                <a href="https://www.youtube.com/@imleko" class="youtube">YouTube</a>
+                <a href="mailto:imlekolg@gmail.com" class="email">Email</a>
+            </div>
+            <br>
+
+            <!-- Add class to the construction image to adjust its size -->
+            <img src="screenshot.png" alt="Construction Image" class="construction-image">
         </div>
-        <br>
-      <!--  <h2>iMleko</h2>-->
 
-        <!-- Add class to the construction image to adjust its size -->
-        <img src="screenshot.png" alt="Construction Image" class="construction-image">
+        <!-- Right content -->
+        <div class="right-content">
+            <h2>iMleko merch</h2>
+
+            <img src="imleko-shirt.jpg" alt="merch image"  class="merch-image">
+      <!--      <img src="russian-shirt.jpg" alt="Placeholder Image">-->
+
+            <p>Piši Lukano al pa Lukano v discord serverju (iMleko manager) pa ti mogoč zrihtama kako majco.</p>
+        </div>
     </div>
 </body>
 </html>
